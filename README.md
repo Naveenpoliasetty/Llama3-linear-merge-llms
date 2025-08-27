@@ -1,6 +1,20 @@
-# Model Merge Configuration
+# LLM Model merging tutorial using Mergekit
 
 This repository contains a configuration file for merging multiple Llama 3–based models into a single unified model using a **linear merge method**.
+
+Clone the below repo for performing LLM merging
+
+## Installations
+
+```bash
+!git clone https://github.com/arcee-ai/mergekit.git
+```
+
+Install requirements
+
+```bash
+! pip install -e .
+```
 
 ## 📄 Configuration
 
