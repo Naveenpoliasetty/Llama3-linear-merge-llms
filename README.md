@@ -7,9 +7,9 @@ This repository demonstrates how to merge multiple **Llama 3–based models** in
 First, clone and install MergeKit:
 
 ```bash
-  git clone https://github.com/arcee-ai/mergekit.git
-  cd mergekit
-  pip install -e .
+git clone https://github.com/arcee-ai/mergekit.git
+cd mergekit
+pip install -e .
 ```
 
 ## 📄 Step 1: Create a Merge Configuration
@@ -64,20 +64,22 @@ This will create a new model inside the merged-model/ directory.
 ### Option B: Using Python API
 
 ```python
-  import yaml
-  from mergekit.config import MergeConfiguration
-  from mergekit.merge import MergeOptions, run_merge
-  # Load configuration
-  with open("merge_config.yaml", "r", encoding="utf-8") as f:
-    merge_config = MergeConfiguration.model_validate(yaml.safe_load(f))
-  # Run merge
-  run_merge(
-    merge_config,
-    out_path="merged-model",
-    options=MergeOptions(copy_tokenizer=True, lora_merge_cache="tmp"),
+import yaml
+
+from mergekit.config import MergeConfiguration
+from mergekit.merge import MergeOptions, run_merge
+
+# Load configuration
+with open("merge_config.yaml", "r", encoding="utf-8") as f:
+  merge_config = MergeConfiguration.model_validate(yaml.safe_load(f))
+# Run merge
+run_merge(
+  merge_config,
+  out_path="merged-model",
+  options=MergeOptions(copy_tokenizer=True, lora_merge_cache="tmp"),
 )
 print("Merge complete! Model saved at merged-model/")
-  print("Merge complete! Model saved at merged-model/")
+print("Merge complete! Model saved at merged-model/")
 ```
 
 ## 🧪 Step 4: Test the Merged Model
@@ -85,15 +87,18 @@ print("Merge complete! Model saved at merged-model/")
 After merging, load the model with Hugging Face:
 
 ```python
-  from transformers
-  import AutoModelForCausalLM, AutoTokenizer
-  model_name = "merged-model"
-  tokenizer = AutoTokenizer.from_pretrained(model_name)
-  model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto")
-  prompt = "Explain quantum mechanics in simple terms."
-  inputs = tokenizer(prompt, return_tensors="pt")
-  outputs = model.generate(**inputs, max_new_tokens=200)
-  print(tokenizer.decode(outputs[0], skip_special_tokens=True))
+from transformers
+import AutoModelForCausalLM, AutoTokenizer
+
+model_name = "merged-model"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name, torch_dtype="auto")
+
+prompt = "Explain quantum mechanics in simple terms."
+inputs = tokenizer(prompt, return_tensors="pt")
+
+outputs = model.generate(**inputs, max_new_tokens=200)
+print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 ```
 
 ## 📌 Notes
