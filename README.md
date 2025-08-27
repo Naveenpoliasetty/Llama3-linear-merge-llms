@@ -6,7 +6,7 @@ This repository contains a configuration file for merging multiple Llama 3–bas
 
 Here’s an example `merge_config.yaml`:
 
-````yaml
+```yaml
 models:
   - model: flammenai/Mahou-1.3-llama3-8B
     parameters:
@@ -21,7 +21,7 @@ models:
 merge_method: linear
 tokenizer_source: union
 dtype: float16
-
+```
 
 ## ⚙️ Explanation
 
@@ -43,10 +43,13 @@ dtype: float16
 2. Run the merge command:
    ```bash
    mergekit-yaml merge_config.yaml --output merged-model
-````
+   ```
+
+```
 
 ## 📌 Notes
 
 - Adjust **weights** if you want one model’s style or knowledge to dominate the merged output.
 - Using float16 is recommended for inference efficiency, but you can switch to bfloat16 or float32 for training/finetuning.
 - The **union tokenizer** prevents token mismatches between models, but can increase vocabulary size.
+```
