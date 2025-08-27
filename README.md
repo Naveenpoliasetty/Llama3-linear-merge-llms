@@ -4,7 +4,24 @@ This repository contains a configuration file for merging multiple Llama 3–bas
 
 ## 📄 Configuration
 
-Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQLGroovyHTMLJavaJavaScriptJSONJSXKotlinLaTeXLessLuaMakefileMarkdownMATLABMarkupObjective-CPerlPHPPowerShell.propertiesProtocol BuffersPythonRRubySass (Sass)Sass (Scss)SchemeSQLShellSwiftSVGTSXTypeScriptWebAssemblyYAMLXML`  models:    - model: flammenai/Mahou-1.3-llama3-8B      parameters:        weight: 1.0    - model: Danielbrdz/Barcenas-Llama3-8b-ORPO      parameters:        weight: 1.0    - model: Weyaxi/Einstein-v6.1-Llama3-8B      parameters:        weight: 1.0  merge_method: linear  tokenizer_source: union  dtype: float16  `
+Here’s an example `merge_config.yaml`:
+
+````yaml
+models:
+  - model: flammenai/Mahou-1.3-llama3-8B
+    parameters:
+      weight: 1.0
+  - model: Danielbrdz/Barcenas-Llama3-8b-ORPO
+    parameters:
+      weight: 1.0
+  - model: Weyaxi/Einstein-v6.1-Llama3-8B
+    parameters:
+      weight: 1.0
+
+merge_method: linear
+tokenizer_source: union
+dtype: float16
+
 
 ## ⚙️ Explanation
 
@@ -28,7 +45,7 @@ Plain textANTLR4BashCC#CSSCoffeeScriptCMakeDartDjangoDockerEJSErlangGitGoGraphQL
    mergekit-yaml merge_config.yaml --output merged-model
 
 
-   ```
+````
 
 ## 📌 Notes
 
