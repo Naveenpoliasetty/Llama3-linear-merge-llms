@@ -43,8 +43,6 @@ dtype: float16
 2. Run the merge command:
    ```bash
    mergekit-yaml merge_config.yaml --output merged-model
-
-
 ````
 
 ## 📌 Notes
